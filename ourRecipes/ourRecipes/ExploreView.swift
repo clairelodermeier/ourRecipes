@@ -9,6 +9,7 @@ import SwiftUI
 struct ExploreView: View {
     @EnvironmentObject var recipeData: RecipeData
     @State var cuisine: String? = nil
+    @State var isLoading: Bool = true
 
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -35,15 +36,20 @@ struct ExploreView: View {
                     .padding(.bottom, 0)
 
             }
-            if recipeData.cuisines.isEmpty {
+            if isLoading {
+                Spacer()
+                Text("Loading cuisines...")
+                    .font(.largeTitle)
+                    .foregroundColor(Color.gray)
+                Spacer()
+            } else if recipeData.cuisines.isEmpty {
                 Spacer()
                 Text("No cuisines to explore!")
                     .font(.largeTitle)
                     .foregroundColor(Color.black)
                 Spacer()
                 
-            }
-            else if cuisine == nil {
+            } else if cuisine == nil {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(recipeData.cuisines.sorted(by: { $0.key < $1.key }), id: \.key) { key, value in
@@ -89,7 +95,9 @@ struct ExploreView: View {
         } // Close VStack
         .onAppear {
             Task {
+                isLoading = true
                 await recipeData.getRecipes()
+                isLoading = false // Done loading
             }
         }
     } // Close body

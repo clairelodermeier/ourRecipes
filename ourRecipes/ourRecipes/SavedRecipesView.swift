@@ -8,13 +8,21 @@ import SwiftUI
 
 struct SavedRecipesView: View {
     @EnvironmentObject var recipeData: RecipeData
+    @State var isLoading: Bool = true
 
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             TopBar(header: "Saved Recipes")
                 .padding(.bottom, 0)
     
-            if recipeData.savedRecipes.isEmpty {
+            if isLoading {
+                Spacer()
+                Text("Loading saved recipes...")
+                    .font(.largeTitle)
+                    .foregroundColor(Color.gray)
+                Spacer()
+                
+            } else if recipeData.savedRecipes.isEmpty {
                 Spacer()
                 Text("No saved recipes yet!")
                     .font(.largeTitle)
@@ -30,7 +38,9 @@ struct SavedRecipesView: View {
         } // Close VStack
         .onAppear {
             Task {
+                isLoading = true
                 await recipeData.getRecipes()
+                isLoading = false // Done loading
             }
         }
     } // Close body
