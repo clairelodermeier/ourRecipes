@@ -9,10 +9,14 @@ import SwiftUI
 
 struct RecipeCell: View {
     @EnvironmentObject var recipeData: RecipeData
+
     var recipe: Recipe
     var isSaved: Bool {
         recipeData.savedRecipes.contains(where: { $0.id == recipe.id })
     }
+    
+    @State var image: UIImage? = nil
+
     var body: some View {
             Button(action: {
                 if let url = recipe.sourceURL {
@@ -54,32 +58,29 @@ struct RecipeCell: View {
                 
                 Spacer()
 
-                AsyncImage(url: recipe.smallImageURL ?? URL(string: "")) { phase in
-                    switch phase {
-                    case .empty:
-                        Image(systemName: "frying.pan.fill")
-                            .frame(width: 100.0, height: 100.0)
-                            .imageScale(.large)
-                        
-                    case .success(let image):
-                        image
-                            .resizable()
-                    case .failure:
-                        Image(systemName: "frying.pan.fill")
-                            .frame(width: 100.0, height: 100.0)
-                            .imageScale(.large)
-                        
-                        
-                    @unknown default:
-                        Image(systemName: "frying.pan.fill")
-                            .frame(width: 100.0, height: 100.0)
-                            .imageScale(.large)
-                    }
-                    
-                } // Close AsyncImage
-                .foregroundColor(.black.opacity(0.5))
-                .background(Color.black.opacity(0.1))
-                .frame(width: 100, height: 100)
+                if recipe.imageURL == nil {
+                    Image(systemName: "frying.pan.fill")
+                        .foregroundColor(.black.opacity(0.5))
+                        .background(Color.black.opacity(0.1))
+                        .frame(width: 100, height: 100)
+                        .imageScale(.large)
+                }
+                else if let image = image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .frame(width: 100, height: 100)
+
+                } else {
+                    Image(systemName: "frying.pan.fill")
+                        .foregroundColor(.black.opacity(0.5))
+                        .background(Color.black.opacity(0.1))
+                        .frame(width: 100, height: 100)
+                        .imageScale(.large)
+                        .task {
+                            image = await ImageHelper.loadCachedImage(from: recipe.imageURL!)
+                        }
+                }
+
                 
             } // Close HStack
             .padding([.top, .bottom, .trailing])
@@ -89,6 +90,7 @@ struct RecipeCell: View {
         .cornerRadius(20)
 
     } //Close body
+
 
 } // Close RecipeCell
 

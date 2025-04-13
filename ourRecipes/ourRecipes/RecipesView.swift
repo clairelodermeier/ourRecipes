@@ -29,7 +29,7 @@ struct RecipesView: View {
                     else if cuisine == nil {
                         ForEach(recipeData.recipes) { recipe in
                             
-                            RecipeCell(recipe: recipe)
+                            RecipeCell(recipe: recipe, image: nil)
                                 .frame(maxWidth: .infinity)
                             
                         }

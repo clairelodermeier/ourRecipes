@@ -49,13 +49,9 @@ class RecipeData: ObservableObject {
                 var recipe = Recipe(id: id, name: name, cuisine: cuisine)
                 
                 // parse optional json data and add it to recipe
-                if let largeImageString = jsonItem["photo_url_large"] as? String,
-                   let largeImageURL = URL(string: largeImageString) {
-                    recipe.largeImageURL = largeImageURL
-                }
-                if let smallImageString = jsonItem["photo_url_small"] as? String,
-                   let smallImageURL = URL(string: smallImageString) {
-                    recipe.smallImageURL = smallImageURL
+                if let imageString = jsonItem["photo_url_small"] as? String,
+                   let imageURL = URL(string: imageString) {
+                    recipe.imageURL = imageURL
                 }
                 if let sourceURLString = jsonItem["source_url"] as? String,
                     let sourceURL = URL(string: sourceURLString) {

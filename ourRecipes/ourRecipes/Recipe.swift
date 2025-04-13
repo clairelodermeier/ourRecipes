@@ -11,8 +11,7 @@ struct Recipe: Codable, Identifiable{
     var id: String
     var name: String
     var cuisine: String
-    var largeImageURL: URL?
-    var smallImageURL: URL?
+    var imageURL: URL?
     var sourceURL: URL?
     
 }
