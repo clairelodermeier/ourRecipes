@@ -6,11 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		D43E493B2DAC90C2008494AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4AC0B3B2DAA07FC00C5C95C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4AC0B422DAA07FC00C5C95C;
+			remoteInfo = ourRecipes;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		D43E49372DAC90C2008494AB /* ourRecipesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ourRecipesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AC0B432DAA07FC00C5C95C /* ourRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ourRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		D43E49382DAC90C2008494AB /* ourRecipesTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ourRecipesTests;
+			sourceTree = "<group>";
+		};
 		D4AC0B452DAA07FC00C5C95C /* ourRecipes */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ourRecipes;
@@ -19,6 +35,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D43E49342DAC90C2008494AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4AC0B402DAA07FC00C5C95C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				D4AC0B452DAA07FC00C5C95C /* ourRecipes */,
+				D43E49382DAC90C2008494AB /* ourRecipesTests */,
 				D4AC0B442DAA07FC00C5C95C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				D4AC0B432DAA07FC00C5C95C /* ourRecipes.app */,
+				D43E49372DAC90C2008494AB /* ourRecipesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +73,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D43E49362DAC90C2008494AB /* ourRecipesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D43E493D2DAC90C2008494AB /* Build configuration list for PBXNativeTarget "ourRecipesTests" */;
+			buildPhases = (
+				D43E49332DAC90C2008494AB /* Sources */,
+				D43E49342DAC90C2008494AB /* Frameworks */,
+				D43E49352DAC90C2008494AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D43E493C2DAC90C2008494AB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D43E49382DAC90C2008494AB /* ourRecipesTests */,
+			);
+			name = ourRecipesTests;
+			packageProductDependencies = (
+			);
+			productName = ourRecipesTests;
+			productReference = D43E49372DAC90C2008494AB /* ourRecipesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D4AC0B422DAA07FC00C5C95C /* ourRecipes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4AC0B4E2DAA07FE00C5C95C /* Build configuration list for PBXNativeTarget "ourRecipes" */;
@@ -80,6 +128,10 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
+					D43E49362DAC90C2008494AB = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = D4AC0B422DAA07FC00C5C95C;
+					};
 					D4AC0B422DAA07FC00C5C95C = {
 						CreatedOnToolsVersion = 16.3;
 					};
@@ -100,11 +152,19 @@
 			projectRoot = "";
 			targets = (
 				D4AC0B422DAA07FC00C5C95C /* ourRecipes */,
+				D43E49362DAC90C2008494AB /* ourRecipesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D43E49352DAC90C2008494AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4AC0B412DAA07FC00C5C95C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +175,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D43E49332DAC90C2008494AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4AC0B3F2DAA07FC00C5C95C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +191,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D43E493C2DAC90C2008494AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4AC0B422DAA07FC00C5C95C /* ourRecipes */;
+			targetProxy = D43E493B2DAC90C2008494AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		D43E493E2DAC90C2008494AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TNLNDVNTW5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = clairelodermeier.ourRecipesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ourRecipes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ourRecipes";
+			};
+			name = Debug;
+		};
+		D43E493F2DAC90C2008494AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TNLNDVNTW5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = clairelodermeier.ourRecipesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ourRecipes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ourRecipes";
+			};
+			name = Release;
+		};
 		D4AC0B4C2DAA07FE00C5C95C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -259,6 +370,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -287,6 +399,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -305,6 +418,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D43E493D2DAC90C2008494AB /* Build configuration list for PBXNativeTarget "ourRecipesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D43E493E2DAC90C2008494AB /* Debug */,
+				D43E493F2DAC90C2008494AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D4AC0B3E2DAA07FC00C5C95C /* Build configuration list for PBXProject "ourRecipes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

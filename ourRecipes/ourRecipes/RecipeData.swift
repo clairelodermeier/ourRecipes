@@ -16,15 +16,13 @@ class RecipeData: ObservableObject {
     @Published var savedRecipes: [Recipe] = []
     
     // fetches list of recipes
-    func getRecipes() async {
-        guard let url = URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json") else { return }
-
+    func getRecipes(from url: URL = URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json")!) async {
+        
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            
             guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
             guard let jsonArray = json["recipes"] as? [[String: Any]] else { return }
-            
+
             // create local lists of recipes and cuisines in the async thread
             var localRecipes: [Recipe] = []
             var localCuisines: [String: [Recipe]] = [:]
@@ -93,7 +91,7 @@ class RecipeData: ObservableObject {
     // updates the error message to display on the UI for bad data
     private func updateErrorMessage() {
         DispatchQueue.main.async {
-            self.errorMessage = "Cannot load recipes. Please try again later."
+            RecipeData.shared.errorMessage = "Cannot load recipes. Please try again later."
         }
     }
     
